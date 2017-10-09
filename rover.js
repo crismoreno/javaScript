@@ -16,7 +16,7 @@ function goForward(rover){
     break;
 
     case 'N':
-      rover.position[1]++;
+      rover.position[1]--;
     break;
 
     case 'W':
@@ -24,7 +24,7 @@ function goForward(rover){
     break;
 
     case 'S':
-      rover.position[1]--;
+      rover.position[1]++;
     break;
   }
 
@@ -48,7 +48,7 @@ function goBackward(rover){
     break;
 
     case 'N':
-      rover.position[1]--;
+      rover.position[1]++;
     break;
 
     case 'W':
@@ -56,7 +56,7 @@ function goBackward(rover){
     break;
 
     case 'S':
-      rover.position[1]++;
+      rover.position[1]--;
     break;
   }
 
@@ -90,7 +90,7 @@ switch(rover.direction) {
     rover.direction = 'N';
   break;
 }
-//backToMap(rover0, rover1);
+
 askDirection();
 }
 //-----------
@@ -124,7 +124,7 @@ function turnLeft(rover){
      rover.direction = 'S';
    break;
  }
- //backToMap(rover0, rover1);
+
  askDirection();
 }
 //-----------
@@ -184,7 +184,7 @@ askDirection();
 //MAP WRAPPING FUNCTION
 function backToMap(rover1){
 
-console.log(rover1);
+//console.log(rover1);
 
 
   switch (rover1.position[0]){
@@ -203,13 +203,13 @@ console.log(rover1);
 
   switch (rover1.position[1]){
 
-    case -11:
+    case 11:
       rover1.position[1]=0;
       console.log('You were saved from the abysm');
     break;
 
-    case 1:
-      rover1.position[1]=-10;
+    case -1:
+      rover1.position[1]=10;
       console.log('You were saved from the abysm');
     break;
 
