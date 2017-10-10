@@ -16,7 +16,7 @@ function goForward(rover){
     break;
 
     case 'N':
-      rover.position[1]--;
+      rover.position[1]++;
     break;
 
     case 'W':
@@ -24,7 +24,7 @@ function goForward(rover){
     break;
 
     case 'S':
-      rover.position[1]++;
+      rover.position[1]--;
     break;
   }
 
@@ -48,7 +48,7 @@ function goBackward(rover){
     break;
 
     case 'N':
-      rover.position[1]++;
+      rover.position[1]--;
     break;
 
     case 'W':
@@ -56,7 +56,7 @@ function goBackward(rover){
     break;
 
     case 'S':
-      rover.position[1]--;
+      rover.position[1]++;
     break;
   }
 
@@ -72,7 +72,7 @@ function goBackward(rover){
 // Set up of turnRight
 function turnRight(rover){
 
-switch(rover.direction) {
+ switch(rover.direction) {
 
   case 'N':
     rover.direction = 'E';
@@ -89,7 +89,7 @@ switch(rover.direction) {
   case 'W':
     rover.direction = 'N';
   break;
-}
+ }
 
 askDirection();
 }
@@ -123,7 +123,7 @@ function turnLeft(rover){
    case 'W':
      rover.direction = 'S';
    break;
- }
+  }
 
  askDirection();
 }
@@ -134,41 +134,32 @@ function turnLeft(rover){
 //-----------
 // SET UP OF THE PROMPT
 function askDirection (){
-var answer = prompt ('Your are at position ' + myRover.position + ' and orientation ' + myRover.direction +
+ var answer = prompt ('Your are at position ' + myRover.position + ' and orientation ' + myRover.direction +
 ' Where do you wanna go? "F" for Forward, "B" for Backwards, "R" to turn right and "L" to turn left.' );
 
 
 
 // SET UP OF THE ANSWER
 switch (answer){
+  case "f":
+  case "F":
+    goForward(myRover);
+  break;
 
-    case "f":
-      goForward(myRover);
-    break;
-    case "F":
-      goForward(myRover);
-     break;
+  case "b":
+  case "B":
+    goBackward(myRover);
+  break;
 
-    case "b":
-      goBackward(myRover);
-    break;
-    case "B":
-      goBackward(myRover);
-    break;
+  case "r":
+  case "R":
+    turnRight(myRover);
+  break;
 
-    case "r":
-      turnRight(myRover);
-    break;
-    case "R":
-      turnRight(myRover);
-    break;
-
-    case "l":
-      turnLeft(myRover);
-    break;
-    case "L":
-      turnLeft(myRover);
-    break;
+  case "l":
+  case "L":
+    turnLeft(myRover);
+  break;
   }
 }
 //-----------
@@ -183,9 +174,6 @@ askDirection();
 //-----------
 //MAP WRAPPING FUNCTION
 function backToMap(rover1){
-
-//console.log(rover1);
-
 
   switch (rover1.position[0]){
 
